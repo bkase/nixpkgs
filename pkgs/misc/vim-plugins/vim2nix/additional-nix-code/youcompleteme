@@ -4,7 +4,9 @@
       llvmPackages.llvm
     ] ++ stdenv.lib.optional stdenv.isDarwin Cocoa;
 
-    propagatedBuildInputs = stdenv.lib.optional (!stdenv.isDarwin) rustracerd;
+    propagatedBuildInputs = [
+      rustracerd
+    ];
 
     patches = [
       ./patches/youcompleteme/1-top-cmake.patch
