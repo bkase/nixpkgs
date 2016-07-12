@@ -10696,6 +10696,7 @@ in {
     # Only test dependencies
     buildInputs = with self; [ pkgs.git gevent geventhttpclient pkgs.glibcLocales mock fastimport ];
 
+    # tests fail on darwin for some reason
     doCheck = !stdenv.isDarwin;
 
     meta = {
