@@ -109,6 +109,17 @@ rec {
     dependencies = [];
   };
 
+  fzfHack = buildVimPluginFrom2Nix {
+    name = "fzfHack-2016-08-01";
+    src = fetchgit {
+      url = "git://github.com/junegunn/fzf";
+      rev = "7cef92fffe4bf020fba08cdc8ad50b137e7b7974";
+      sha256 = "19x8p460l9rh621wd1x1zs9gffl82hgd31dwf294cw2qaj5rsf0z";
+    };
+    dependencies = [];
+
+  };
+
   # --- generated packages bellow this line ---
 
   CSApprox = buildVimPluginFrom2Nix { # created by nix#NixDerivation
@@ -464,12 +475,34 @@ rec {
 
   };
 
+  neomru = buildVimPluginFrom2Nix {
+    name = "neomru-2016-02-22";
+    src = fetchgit {
+      url = "git://github.com/Shougo/neomru.vim";
+      rev = "e86ebb07c3498e81b13a195330831eb845555633";
+      sha256 = "03cybcasr21g8l77dixlm9f2mi6psja7ycxahmv7ia96gdnpfxg2";
+    };
+    dependencies = [];
+
+  };
+
   vim-hdevtools = buildVimPluginFrom2Nix { # created by nix#NixDerivation
     name = "vim-hdevtools-2012-12-29";
     src = fetchgit {
       url = "git://github.com/bitc/vim-hdevtools";
       rev = "474947c52ff9c93dd36f3c49de90bd9a78f0baa1";
       sha256 = "1wwjb9m2l9q75d408jzq9bwv5i376bfgs6vc3ihwwlawcrmhjpxz";
+    };
+    dependencies = [];
+
+  };
+
+  vim-flow = buildVimPluginFrom2Nix {
+    name = "vim-flow-2016-07-08";
+    src = fetchgit {
+      url = "git://github.com/flowtype/vim-flow";
+      rev = "10f7461c541ccdd9bf7ab59aace952f8c8b63cd7";
+      sha256 = "0x625c3k5m73j6zn1zv65w2dzs833nvmzkj6hvdzlvql9p7sd28n";
     };
     dependencies = [];
 
@@ -2143,5 +2176,17 @@ rec {
       export PY3=ON
       ./install.sh
     '';
+
+  };
+
+  vim-javascript = buildVimPluginFrom2Nix {
+    name = "vim-javascript-2016-07-28";
+    src = fetchgit {
+      url = "git://github.com/pangloss/vim-javascript";
+      rev = "8e3f5897728ab38aa28edbab02d18bda36241a1b";
+      sha256 = "1rrj9d3xqzdycjsj97g3rdafm2bfx6vbcwcl95js5ijm92za00vc";
+    };
+    dependencies = [];
+
   };
 }
