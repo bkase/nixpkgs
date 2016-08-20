@@ -340,12 +340,34 @@ rec {
 
   };
 
+  vim-elixir = buildVimPluginFrom2Nix { # created by nix#NixDerivation
+    name = "vim-elixir-2016-08-11";
+    src = fetchgit {
+      url = "git://github.com/elixir-lang/vim-elixir";
+      rev = "22a99585d608a2708f9c23732aaa33e6847c8929";
+      sha256 = "1k068x8wlyslk7jyrlxmlgqnl8pmknzcnmfm40k1rq02qw4pf43m";
+    };
+    dependencies = [];
+
+  };
+
   extradite = buildVimPluginFrom2Nix { # created by nix#NixDerivation
     name = "extradite-2015-09-22";
     src = fetchgit {
       url = "git://github.com/int3/vim-extradite";
       rev = "52326f6d333cdbb9e9c6d6772af87f4f39c00526";
       sha256 = "0c89i0spvdm9vi65q15qcmsfmwa9rds2wmaq1kf6s7q7ywvs6w8i";
+    };
+    dependencies = [];
+
+  };
+
+  vim-markdown = buildVimPluginFrom2Nix { # created by nix#NixDerivation
+    name = "vim-markdown-2016-07-30";
+    src = fetchgit {
+      url = "git://github.com/gabrielelana/vim-markdown";
+      rev = "23e7da1a1266c40fa0d285437c310944a39f573d";
+      sha256 = "1kmn1cgxf3mv8c2rind97rnfn5cdc4qfpvmsl09ggdxm3vr1kdpm";
     };
     dependencies = [];
 
@@ -2156,6 +2178,17 @@ rec {
 
   };
 
+  emmet-vim = buildVimPluginFrom2Nix {
+    name = "emmet-vim-2016-07-28";
+    src = fetchgit {
+      url = "git://github.com/mattn/emmet-vim";
+      rev = "f4b097af50833964e15f17192f2d1c336e34936e";
+      sha256 = "0pxg9wmnwjwwnw56b85vxzf5qay7b0k5w9q4g87iqyflbh25swnn";
+    };
+    dependencies = [];
+
+  };
+
   cpsm = buildVimPluginFrom2Nix { # created by nix#NixDerivation
     name = "cpsm-2016-09-21";
     src = fetchgit {
@@ -2185,6 +2218,17 @@ rec {
       url = "git://github.com/pangloss/vim-javascript";
       rev = "8e3f5897728ab38aa28edbab02d18bda36241a1b";
       sha256 = "1rrj9d3xqzdycjsj97g3rdafm2bfx6vbcwcl95js5ijm92za00vc";
+    };
+    dependencies = [];
+
+  };
+
+  vim-jsx = buildVimPluginFrom2Nix {
+    name = "vim-javascript-2016-07-29";
+    src = fetchgit {
+      url = "git://github.com/mxw/vim-jsx";
+      rev = "261114c925ea81eeb4db1651cc1edced66d6b5d6";
+      sha256 = "17pffzwnvsimnnr4ql1qifdh4a0sqqsmcwfiqqzgglvsnzw5vpls";
     };
     dependencies = [];
 
