@@ -1,5 +1,5 @@
 # TODO check that no license information gets lost
-{ fetchurl, bash, stdenv, python, go, cmake, vim, vimUtils, perl, ruby, unzip
+{ fetchurl, bash, stdenv, python, cmake, vim, vimUtils, perl, ruby, unzip
 , which, fetchgit, fetchFromGitHub, fetchhg, fetchzip, llvmPackages, zip
 , vim_configurable, vimPlugins, xkb_switch, git, rustracerd ? null, fzf
 , python3, boost, icu
@@ -1094,17 +1094,6 @@ rec {
 
   };
 
-  vim-markdown = buildVimPluginFrom2Nix { # created by nix#NixDerivation
-    name = "vim-markdown-2016-05-19";
-    src = fetchgit {
-      url = "git://github.com/plasticboy/vim-markdown";
-      rev = "a3169545f330ec8080244c3ad755bb2211eca8a0";
-      sha256 = "1ycqx280xpc5gvfx8rrnmkqlv8q8g51hgiryx6yvd9a8ci805cx1";
-    };
-    dependencies = [];
-
-  };
-
   vim-racer = buildVimPluginFrom2Nix { # created by nix#NixDerivation
     name = "vim-racer-2016-10-18";
     src = fetchgit {
@@ -1363,7 +1352,7 @@ rec {
     };
     dependencies = [];
     buildInputs = [
-      python go cmake
+      python cmake
       (if stdenv.isDarwin then llvmPackages.clang else llvmPackages.clang-unwrapped)
       llvmPackages.llvm
     ] ++ stdenv.lib.optional stdenv.isDarwin Cocoa;
@@ -1382,9 +1371,9 @@ rec {
 
       mkdir build
       pushd build
-      cmake -G "Unix Makefiles" . ../third_party/ycmd/cpp -DPYTHON_LIBRARIES:PATH=${python}/lib/libpython2.7.so -DPYTHON_INCLUDE_DIR:PATH=${python}/include/python2.7 -DUSE_CLANG_COMPLETER=ON -DUSE_SYSTEM_LIBCLANG=ON
+      cmake -G "Unix Makefiles" . ../third_party/ycmd/cpp -DPYTHON_LIBRARIES:PATH=${python}/lib/libpython2.7.so -DPYTHON_INCLUDE_DIR:PATH=${python}/include/python2.7 -DUSE_CLANG_COMPLETER=ON -DUSE_SYSTEM_LIBCLANG=OFF
       make ycm_core -j''${NIX_BUILD_CORES} -l''${NIX_BUILD_CORES}}
-      ${python}/bin/python ../third_party/ycmd/build.py --gocode-completer --clang-completer --system-libclang
+      ${python}/bin/python ../third_party/ycmd/build.py --clang-completer
       popd
     '';
 
